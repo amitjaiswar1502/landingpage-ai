@@ -18,13 +18,13 @@ export function Navbar({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "absolute  top-10 inset-x-0 max-w-2xl mx-auto z-50",
+        "absolute top-10 hidden md:block inset-x-0 max-w-2xl mx-auto z-50",
         className
       )}
     >
-      <Menu setActive={setActive}>
+      <Menu setActive={setActive}>        
         <Image
-          className="absolute left-0 top-1/2 -translate-y-1/2"
+          className="absolute left-0 top-1/2 -translate-y-1/2 size-10"
           priority
           src="/firefox.svg"
           alt="logo"
