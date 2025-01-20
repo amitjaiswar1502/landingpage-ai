@@ -16,7 +16,7 @@ const SecondScreen = () => {
         <Navbar className="" />
       </div>
 
-      <div className=" px-4  flex flex-col items-center justify-center min-h-dvh">
+      <div className=" px-4 flex flex-col items-center justify-center min-h-dvh">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
