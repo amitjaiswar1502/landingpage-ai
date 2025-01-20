@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 export interface AnimatedBeamProps {
   className?: string;
-  containerRef: RefObject<HTMLElement | null>; // Container ref
+  containerRef: RefObject<HTMLElement | null>;
   fromRef: RefObject<HTMLElement | null>;
   toRef: RefObject<HTMLElement | null>;
   curvature?: number;
@@ -32,8 +32,8 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
   toRef,
   curvature = 0,
   reverse = false, 
-  duration = Math.random() * 9 + 4,
-  delay = 0.5,
+  duration = Math.random() * 15 + 3,
+  delay = 0,
   pathColor = "gray",
   pathWidth = 3,
   pathOpacity = 0.2,
@@ -48,7 +48,6 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
   const [pathD, setPathD] = useState("");
   const [svgDimensions, setSvgDimensions] = useState({ width: 0, height: 0 });
 
-  // Calculate the gradient coordinates based on the reverse prop
   const gradientCoordinates = reverse
     ? {
         x1: ["90%", "-10%"],
@@ -92,15 +91,36 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
     };
 
     // Initialize ResizeObserver
-    
+    const resizeObserver = new ResizeObserver(() => {
+      updatePath();
+    });
 
-  
+    // Observe container and connected elements
+    if (containerRef.current) {
+      resizeObserver.observe(containerRef.current);
+    }
+    if (fromRef.current) {
+      resizeObserver.observe(fromRef.current);
+    }
+    if (toRef.current) {
+      resizeObserver.observe(toRef.current);
+    }
 
-    // Call the updatePath initially to set the initial path
+    // Call updatePath initially
     updatePath();
 
-    // Clean up the observer on component unmount
-   
+    // Set up window resize listener
+    window.addEventListener('resize', updatePath);
+
+    // Update path on scroll
+    window.addEventListener('scroll', updatePath, true);
+
+    // Clean up
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener('resize', updatePath);
+      window.removeEventListener('scroll', updatePath, true);
+    };
   }, [
     containerRef,
     fromRef,
@@ -123,6 +143,11 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
         className,
       )}
       viewBox={`0 0 ${svgDimensions.width} ${svgDimensions.height}`}
+      style={{
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+      }}
     >
       <path
         d={pathD}
@@ -158,9 +183,9 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
           transition={{
             delay,
             duration,
-            ease: [0.16, 1, 0.3, 1], 
+            ease: "linear",
             repeat: Infinity,
-            repeatDelay: 0,
+            repeatDelay: 3,
           }}
         >
           <stop stopColor={gradientStartColor} stopOpacity="0"></stop>

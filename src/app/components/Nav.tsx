@@ -25,11 +25,14 @@ export function Navbar({ className }: { className?: string }) {
         animate={{ opacity: 1, x: 0 }}
         transition={{
           duration: 1.2,
-          delay: 0.8,
+          delay: 1,
         }}
-        className="absolute top-5 left-5 lg:left-12"
+        className="absolute top-5 left-5 lg:left-12 flex  items-center"
       >
-        <h3>GCORE</h3>
+        <h3 className="text-3xl p-1 size-9 bg-white text-black font-bold rounded-full flex items-center justify-center">
+          G
+        </h3>
+        <span className="text-2xl font-bold ml-1">GCORE</span>
       </motion.div>
 
       <motion.div
@@ -122,7 +125,9 @@ export function Navbar({ className }: { className?: string }) {
         }}
         className="absolute top-5 right-5 lg:right-12 flex flex-row space-x-2"
       >
-        <Button className="hidden md:block" variant={"secondary"}>Contact Us</Button>
+        <Button className="hidden md:block" variant={"secondary"}>
+          Contact Us
+        </Button>
         <Button variant={"orange"}>Sign Up for Free</Button>
       </motion.div>
     </nav>
