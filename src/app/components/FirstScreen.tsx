@@ -26,10 +26,11 @@ export default function FirstScreen() {
   }, []);
 
   return (
-    <main className="relative h-dvh w-screen overflow-hidden bg-black text-white">
-      <div className="hidden md:flex  bg-[#151515] justify-between items-start relative top-0 left-0 right-0 z-50">
+    <main className="relative h-dvh w-screen overflow-hidden text-white">
+      {/* Top Header */}
+      <div className="hidden md:flex text-sm text-gray-100 bg-[#151515] justify-between items-start relative top-0 left-0 right-0 z-50">
         <div className="flex mx-10 items-center p-2 justify-center gap-1">
-          GPU AI/ML Apps Today! Nvidia A100s & H100s for £1.3/h
+        <span className="text-orange-500 hidden md:inline">•</span> GPU AI/ML Apps Today! Nvidia A100s & H100s for £1.3/h
           <span className="p-1 rounded-full border-2">
             <ArrowRight size={12} />
           </span>
@@ -43,18 +44,19 @@ export default function FirstScreen() {
         </div>
       </div>
 
+      {/* Loading Screen */}
       <AnimatePresence>
         {isLoading && (
           <motion.div
             className="absolute inset-0 flex items-center justify-center z-0"
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 2 }}
           >
             <motion.div
               className="flex items-center"
               initial={{ x: "50%" }}
-              animate={{ x: showCore ? "0%" : "50%" }}
+              animate={{ x: showCore ? "0" : "50%" }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
             >
               <motion.div
@@ -75,7 +77,11 @@ export default function FirstScreen() {
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
+                    transition={{
+                      duration: 0.5,
+                      ease: "easeOut",
+                      delay: 0.3,
+                    }}
                     className="text-[12vw] font-bold tracking-wider"
                   >
                     core
@@ -87,7 +93,25 @@ export default function FirstScreen() {
         )}
       </AnimatePresence>
 
-      <AnimatePresence>{showPage && <SecondScreen />}</AnimatePresence>
+      {/* Second Screen */}
+ 
+        {showPage && (
+          <motion.div
+            // className="absolute inset-0 z-50"
+            initial={{ y: "100vh" }}
+            animate={{ y: 0 }}
+            exit={{ y: "100vh" }}
+            transition={{
+              duration: 1.3,
+              ease: [0.43, 0.13, 0.23, 0.96],
+            }}
+          >
+            <SecondScreen />
+          </motion.div>
+        )}
+      
+
+      
     </main>
   );
 }

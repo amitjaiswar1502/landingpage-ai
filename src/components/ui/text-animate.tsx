@@ -364,7 +364,7 @@ export function TextAnimate({
         whileInView={startOnView ? "show" : undefined}
         animate={startOnView ? undefined : "show"}
         exit="exit"
-        className={cn("whitespace-pre-wrap text-[12vw]  font-bold tracking-wide", className)}
+        className={cn("whitespace-pre-wrap text-lg  font-bold tracking-wide", className)}
         {...props}
       >
         {segments.map((segment, i) => (
