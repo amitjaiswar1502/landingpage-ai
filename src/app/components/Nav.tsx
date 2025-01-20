@@ -12,7 +12,7 @@ import {
 import { motion } from "framer-motion";
 
 import Image from "next/image";
-import { TextAnimate } from "@/components/ui/text-animate";
+
 import { Button } from "@/components/ui/button";
 
 export function Navbar({ className }: { className?: string }) {

@@ -38,9 +38,9 @@ const SecondScreen = () => {
           </h1>
 
           <p className="text-gray-400 text-lg mb-8">
-            Boost your AI application's speed and efficiency globally by
+            {`Boost your AI application's speed and efficiency globally by
             bringing inference closer to your users. Enjoy customization and
-            cost-efficiency for a best-in-class inference experience.
+            cost-efficiency for a best-in-class inference experience.`}
           </p>
 
           <div className="flex justify-center space-x-4 mb-12">
