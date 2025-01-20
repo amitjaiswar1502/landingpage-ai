@@ -6,7 +6,7 @@ import { Navbar } from "./Nav";
 import { Spotlight } from "@/components/ui/spotlight";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { AnimatedBeamDemo } from "./AnimatedBeam";
+import { AnimatedBeamDemo } from "./AnimatedBeamDemo";
 
 const SecondScreen = () => {
   return (
@@ -16,7 +16,7 @@ const SecondScreen = () => {
         <Navbar className="" />
       </div>
 
-      <div className="container mx-auto px-4 py-16 flex flex-col items-center justify-center min-h-dvh">
+      <div className=" px-4  flex flex-col items-center justify-center min-h-dvh">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -52,17 +52,7 @@ const SecondScreen = () => {
           </div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{
-            duration: 0.6,
-            delay: 0.9, // Delay this animation until after the content fade-in
-          }}
-          className="w-full max-w-4xl"
-        >
-          <AnimatedBeamDemo />
-        </motion.div>
+        <AnimatedBeamDemo />
       </div>
     </div>
   );
