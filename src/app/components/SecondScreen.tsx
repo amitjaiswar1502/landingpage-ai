@@ -19,7 +19,7 @@ const SecondScreen = () => {
       </div>
 
       <div className=" px-4 flex flex-col items-center justify-center min-h-dvh">
-        <div className="text-center max-w-3xl mx-auto ]">
+        <div className="text-center pt-20  mx-auto ">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -34,7 +34,7 @@ const SecondScreen = () => {
             </Button>
           </motion.div>
 
-          <h1 className="flex justify-center items-center gap-x-4 text-4xl md:text-6xl font-bold">
+          <h1 className="flex justify-center  flex-wrap items-center gap-x-3 text-4xl md:text-6xl font-bold">
             {heading.map((word, index) => (
               <motion.span
                 key={word}
@@ -48,7 +48,7 @@ const SecondScreen = () => {
                     damping: 8,
                   },
                 }}
-                className="bg-gradient-to-b from-gray-600 pb-5 to-gray-100 inline-block text-transparent bg-clip-text"
+                className="bg-gradient-to-b text-wrap from-gray-600 pb-5 font-semibold to-white inline-block text-transparent bg-clip-text"
               >
                 {word}
               </motion.span>
@@ -74,7 +74,7 @@ const SecondScreen = () => {
               duration: 1.2,
               delay: 1.5,
             }}
-            className="text-gray-400 text-lg mb-8"
+            className="text-gray-400 max-w-xl text-sm md:text-lg mb-8 leading-6 mx-auto"
           >
             {`Boost your AI application's speed and efficiency globally by
             bringing inference closer to your users. Enjoy customization and
