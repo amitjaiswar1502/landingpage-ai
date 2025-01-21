@@ -9,6 +9,8 @@ import { Button } from "@/components/ui/button";
 import { AnimatedBeamDemo } from "./AnimatedBeamDemo";
 
 const SecondScreen = () => {
+  const heading = ["Inference", "at", "the", "Edge"];
+
   return (
     <div className="relative z-50 bg-[#040100] overflow-y-auto rounded-tl-3xl rounded-tr-3xl">
       <Spotlight className="top-0 right-0" />
@@ -32,9 +34,30 @@ const SecondScreen = () => {
             </Button>
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, x: -30, scale: 0.85 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
+          <h1 className="flex justify-center items-center gap-x-4 text-4xl md:text-6xl font-bold">
+            {heading.map((word, index) => (
+              <motion.span
+                key={word}
+                initial={{ opacity: 0, y: 50, scale: 1.2 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{
+                  duration: 0.8,
+                  delay: index * 0.5,
+                  scale: {
+                    type: "spring",
+                    damping: 8,
+                  },
+                }}
+                className="bg-gradient-to-b from-gray-600 pb-5 to-gray-100 inline-block text-transparent bg-clip-text"
+              >
+                {word}
+              </motion.span>
+            ))}
+          </h1>
+
+          {/* <motion.h1
+            initial={{ opacity: 0, y: 30, scale: 1.2}}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{
               duration: 1.2,
               delay: 1.3,
@@ -42,7 +65,7 @@ const SecondScreen = () => {
             className="text-4xl md:text-6xl font-bold bg-gradient-to-b from-gray-600 to-gray-100 inline-block text-transparent bg-clip-text pb-7"
           >
             Inference at the Edge
-          </motion.h1>
+          </motion.h1> */}
 
           <motion.p
             initial={{ opacity: 0, x: -20 }}
@@ -58,13 +81,15 @@ const SecondScreen = () => {
             cost-efficiency for a best-in-class inference experience.`}
           </motion.p>
 
-          <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 1.2,
-            delay: 1.8,
-          }} className="flex justify-center space-x-4 mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 1.2,
+              delay: 1.8,
+            }}
+            className="flex justify-center space-x-4 mb-12"
+          >
             <Button variant="orange" className="text-white">
               Get started
               <ArrowRight className="ml-2 h-4 w-4" />
