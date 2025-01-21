@@ -7,12 +7,24 @@ import { Spotlight } from "@/components/ui/spotlight";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatedBeamDemo } from "./AnimatedBeamDemo";
+import GridPattern from "@/components/ui/grid-pattern";
+import { cn } from "@/lib/utils";
 
 const SecondScreen = () => {
   const heading = ["Inference", "at", "the", "Edge"];
 
   return (
     <div className="relative z-50 bg-[#040100] overflow-y-auto rounded-tl-3xl rounded-tr-3xl">
+      <GridPattern
+        width={100}
+        height={100}
+        x={-1}
+        y={-1}
+        strokeDasharray={"4 2"}
+        className={cn(
+          "[mask-image:radial-gradient(800px_circle_at_top,white,transparent)]"
+        )}
+      />
       <Spotlight className="top-0 right-0" />
       <div className=" top-5 ">
         <Navbar className="" />

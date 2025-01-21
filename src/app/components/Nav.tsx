@@ -27,11 +27,24 @@ export function Navbar({ className }: { className?: string }) {
           duration: 1.2,
           delay: 1,
         }}
-        className="absolute top-5 left-5 lg:left-12 flex  items-center"
+        className="absolute  top-5 left-5 lg:left-12 flex  items-center"
       >
-        <h3 className="text-3xl p-1 size-9 bg-white text-black font-bold rounded-full flex items-center justify-center">
-          G
-        </h3>
+        <div className=" size-7 bg-white rounded-full flex justify-center items-center">
+          <motion.h3
+            key="G"
+            initial={{ opacity: 0, x: 0 }}
+            animate={{ opacity: 1, x: "-10%", rotate: -3 }}
+            transition={{
+              duration: 1,
+              delay: 0.5,
+              ease: "easeOut",
+            }}
+            className="text-[35px] p-1 text-black font-bold "
+          >
+            G
+          </motion.h3>
+        </div>
+
         <span className="text-2xl font-bold ml-1">GCORE</span>
       </motion.div>
 

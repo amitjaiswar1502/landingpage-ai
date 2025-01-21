@@ -5,20 +5,21 @@ import { useEffect, useState } from "react";
 import SecondScreen from "./SecondScreen";
 import { ArrowRight, Globe } from "lucide-react";
 
+
 export default function FirstScreen() {
   const [isLoading, setIsLoading] = useState(true);
   const [showPage, setShowPage] = useState(false);
+  const [showG, setShowG] = useState(false);
   const [showCore, setShowCore] = useState(false);
-  const [rotationComplete, setRotationComplete] = useState(false);
 
   useEffect(() => {
-    const rotationTimer = setTimeout(() => setRotationComplete(true), 1200);
-    const coreTimer = setTimeout(() => setShowCore(true), 1500);
-    const loadingTimer = setTimeout(() => setIsLoading(false), 3000);
-    const pageTimer = setTimeout(() => setShowPage(true), 3500);
+    const gTimer = setTimeout(() => setShowG(true), 1500); // Delay to show "G"
+    const coreTimer = setTimeout(() => setShowCore(true), 2000);
+    const loadingTimer = setTimeout(() => setIsLoading(false), 3500);
+    const pageTimer = setTimeout(() => setShowPage(true), 4000);
 
     return () => {
-      clearTimeout(rotationTimer);
+      clearTimeout(gTimer);
       clearTimeout(coreTimer);
       clearTimeout(loadingTimer);
       clearTimeout(pageTimer);
@@ -27,10 +28,12 @@ export default function FirstScreen() {
 
   return (
     <main className="relative h-dvh w-screen overflow-hidden text-white">
+    
       {/* Top Header */}
       <div className="hidden md:flex text-sm text-gray-100 bg-[#151515] justify-between items-start relative top-0 left-0 right-0 z-50">
         <div className="flex mx-10 items-center p-2 justify-center gap-1">
-        <span className="text-orange-500 hidden md:inline">•</span> GPU AI/ML Apps Today! Nvidia A100s & H100s for £1.3/h
+          <span className="text-orange-500 hidden md:inline">•</span> GPU AI/ML
+          Apps Today! Nvidia A100s & H100s for £1.3/h
           <span className="p-1 rounded-full border-2">
             <ArrowRight size={12} />
           </span>
@@ -44,7 +47,6 @@ export default function FirstScreen() {
         </div>
       </div>
 
-      {/* Loading Screen */}
       <AnimatePresence>
         {isLoading && (
           <motion.div
@@ -59,21 +61,38 @@ export default function FirstScreen() {
               animate={{ x: showCore ? "0" : "50%" }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
             >
-              <motion.div
-                className="flex items-center justify-center bg-white h-[12vw] aspect-square text-black rounded-full overflow-hidden"
-                initial={{ rotate: 0 }}
-                animate={{ rotate: 360 }}
-                transition={{
-                  duration: 1.2,
-                  ease: "easeInOut",
-                }}
-                onAnimationComplete={() => setRotationComplete(true)}
-              >
-                <span className="text-[12vw] font-bold tracking-wider">G</span>
+              <motion.div className="flex items-center justify-center bg-white size-[9vw] aspect-square text-black rounded-full overflow-hidden">
+                <AnimatePresence mode="wait">
+                  {!showG ? (
+                    <motion.span
+                      key="O"
+                      initial={{ opacity: 1 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.8 }}
+                      className="text-[10vw] font-bold tracking-wider"
+                    >
+                      O
+                    </motion.span>
+                  ) : (
+                    <motion.span
+                      key="G"
+                      initial={{ opacity: 0, x: 0 }}
+                      animate={{ opacity: 1, x: "-20%", rotate: -3 }}
+                      transition={{
+                        duration: 1,
+                        ease: "easeOut",
+                      }}
+                      className="text-[11vw] font-bold tracking-wider"
+                    >
+                      G
+                    </motion.span>
+                  )}
+                </AnimatePresence>
               </motion.div>
 
               <AnimatePresence>
-                {rotationComplete && (
+                {showCore && (
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -82,7 +101,7 @@ export default function FirstScreen() {
                       ease: "easeOut",
                       delay: 0.3,
                     }}
-                    className="text-[12vw] font-bold tracking-wider"
+                    className="text-[11vw] font-bold tracking-wider"
                   >
                     core
                   </motion.div>
@@ -93,25 +112,19 @@ export default function FirstScreen() {
         )}
       </AnimatePresence>
 
-      {/* Second Screen */}
- 
-        {showPage && (
-          <motion.div
-            // className="absolute inset-0 z-50"
-            initial={{ y: "100vh" }}
-            animate={{ y: 0 }}
-            exit={{ y: "100vh" }}
-            transition={{
-              duration: 1.3,
-              ease: [0.43, 0.13, 0.23, 0.96],
-            }}
-          >
-            <SecondScreen />
-          </motion.div>
-        )}
-      
-
-      
+      {showPage && (
+        <motion.div
+          initial={{ y: "100vh" }}
+          animate={{ y: 0 }}
+          exit={{ y: "100vh" }}
+          transition={{
+            duration: 1.3,
+            ease: [0.43, 0.13, 0.23, 0.96],
+          }}
+        >
+          <SecondScreen />
+        </motion.div>
+      )}
     </main>
   );
 }
