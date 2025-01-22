@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import SecondScreen from "./SecondScreen";
 import { ArrowRight, Globe } from "lucide-react";
 
-
 export default function FirstScreen() {
   const [isLoading, setIsLoading] = useState(true);
   const [showPage, setShowPage] = useState(false);
@@ -28,7 +27,6 @@ export default function FirstScreen() {
 
   return (
     <main className="relative h-dvh w-screen overflow-hidden text-white">
-    
       {/* Top Header */}
       <div className="hidden md:flex text-sm text-gray-100 bg-[#151515] justify-between items-start relative top-0 left-0 right-0 z-50">
         <div className="flex mx-10 items-center p-2 justify-center gap-1">
@@ -66,11 +64,11 @@ export default function FirstScreen() {
                   {!showG ? (
                     <motion.span
                       key="O"
-                      initial={{ opacity: 1 }}
+                      initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.8 }}
-                      className="text-[10vw] font-bold tracking-wider"
+                      className="text-[9vw] font-bold tracking-wider flex items-center justify-center h-full"
                     >
                       O
                     </motion.span>
@@ -78,7 +76,7 @@ export default function FirstScreen() {
                     <motion.span
                       key="G"
                       initial={{ opacity: 0, x: 0 }}
-                      animate={{ opacity: 1, x: "-20%", rotate: -3 }}
+                      animate={{ opacity: 1, x: "-10%", rotate: -3 }}
                       transition={{
                         duration: 1,
                         ease: "easeOut",

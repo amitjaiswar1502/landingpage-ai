@@ -50,7 +50,7 @@ const SecondScreen = () => {
             {heading.map((word, index) => (
               <motion.span
                 key={word}
-                initial={{ opacity: 0, y: 50, scale: 1.2 }}
+                initial={{ opacity: 0, y: 50, scale: 1.5 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{
                   duration: 0.8,
@@ -80,11 +80,11 @@ const SecondScreen = () => {
           </motion.h1> */}
 
           <motion.p
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{
               duration: 1.2,
-              delay: 1.5,
+              delay: 1.6,
             }}
             className="text-gray-400 max-w-xl text-sm md:text-lg mb-8 leading-6 mx-auto"
           >
