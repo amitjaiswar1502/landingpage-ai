@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/navbar-menu";
 import { motion } from "framer-motion";
 
-import Image from "next/image";
+
 
 import { Button } from "@/components/ui/button";
 
@@ -27,7 +27,7 @@ export function Navbar({ className }: { className?: string }) {
           duration: 1.2,
           delay: 1,
         }}
-        className="absolute  top-5 left-5 lg:left-12 flex  items-center"
+        className="absolute top-5 left-5 lg:left-12 flex  items-center"
       >
         <div className=" size-7 bg-white rounded-full flex justify-center items-center">
           <motion.h3
@@ -61,14 +61,14 @@ export function Navbar({ className }: { className?: string }) {
         )}
       >
         <Menu setActive={setActive}>
-          <Image
+          {/* <Image
             className="absolute left-0 top-1/2 -translate-y-1/2 size-10"
             priority
             src="/firefox.svg"
             alt="logo"
             width={30}
             height={30}
-          />
+          /> */}
           <MenuItem setActive={setActive} active={active} item="Products">
             <div className="flex flex-col  text-sm">
               <HoveredLink href="/web-dev">Web Development</HoveredLink>

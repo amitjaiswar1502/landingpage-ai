@@ -1,9 +1,10 @@
-import HomePage from "./components/HomePage";
+import FirstScreen from "./components/FirstScreen";
+
 
 export default function Home() {
   return (
     <>
-      <HomePage />
+      <FirstScreen />
     </>
   );
 }

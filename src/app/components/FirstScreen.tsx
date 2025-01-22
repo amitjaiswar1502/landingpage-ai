@@ -26,9 +26,9 @@ export default function FirstScreen() {
   }, []);
 
   return (
-    <main className="relative h-dvh w-screen overflow-hidden text-white">
+    <main className="relative h-dvh w-screen bg-[#151515] overflow-hidden text-white">
       {/* Top Header */}
-      <div className="hidden md:flex text-sm text-gray-100 bg-[#151515] justify-between items-start relative top-0 left-0 right-0 z-50">
+      <div className="hidden md:flex text-sm text-gray-100  justify-between items-start relative top-0 left-0 right-0 z-50">
         <div className="flex mx-10 items-center p-2 justify-center gap-1">
           <span className="text-orange-500 hidden md:inline">•</span> GPU AI/ML
           Apps Today! Nvidia A100s & H100s for £1.3/h
@@ -59,7 +59,7 @@ export default function FirstScreen() {
               animate={{ x: showCore ? "0" : "50%" }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
             >
-              <motion.div className="flex items-center justify-center bg-white size-[9vw] aspect-square text-black rounded-full overflow-hidden">
+              <motion.div className="flex items-center justify-center bg-white border-[1px] border-black size-[9vw] aspect-square text-black rounded-full overflow-hidden">
                 <AnimatePresence mode="wait">
                   {!showG ? (
                     <motion.span
@@ -119,6 +119,7 @@ export default function FirstScreen() {
             duration: 1.3,
             ease: [0.43, 0.13, 0.23, 0.96],
           }}
+          className="size-[100%] flex flex-col items-center justify-center overflow-y-auto"
         >
           <SecondScreen />
         </motion.div>
