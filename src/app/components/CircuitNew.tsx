@@ -207,7 +207,7 @@ export default function App() {
             y="440"
             width="120"
             height="120"
-            rx="16"
+            rx="30"
             className="fill-[#1A1A1A] stroke-[#333]"
           />
           <text
@@ -235,7 +235,7 @@ export default function App() {
             y="610"
             width="80"
             height="80"
-            rx="16"
+            rx="25"
             className="fill-[#1A1A1A] stroke-[#333]"
           />
           <text
@@ -264,7 +264,7 @@ export default function App() {
             y="150"
             width="100"
             height="100"
-            rx="16"
+            rx="20"
             className="fill-[#1A1A1A] stroke-[#333]"
           />
           <text
@@ -292,7 +292,7 @@ export default function App() {
             y="310"
             width="100"
             height="100"
-            rx="16"
+            rx="20"
             className="fill-[#1A1A1A] stroke-[#333]"
           />
           <g transform="translate(1920, 330)">
@@ -345,10 +345,18 @@ export default function App() {
             y="460"
             width="90"
             height="90"
-            rx="16"
-            className="fill-[#1A1A1A] stroke-[#333]"
+            rx="20"
+            className="fill-[#1A1A1A]  stroke-[#333]"
           />
-          <circle cx="1795" cy="505" r="18" className="fill-gray-300" />
+
+          <image
+            className="relative z-40"
+            x="1770"
+            y="480"
+            height="50"
+            width="50"
+            href="./chatgpt.svg"
+          />
         </motion.g>
 
         <motion.g
