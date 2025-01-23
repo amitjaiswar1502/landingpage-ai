@@ -23,7 +23,7 @@ const SecondScreen = () => {
         y={-1}
         strokeDasharray={"4 2"}
         className={cn(
-          "[mask-image:radial-gradient(800px_circle_at_top,white,transparent)] opacity-50"
+          "[mask-image:radial-gradient(800px_circle_at_top,white,transparent)] opacity-80"
         )}
       />
       <Spotlight className="top-0 right-0" />

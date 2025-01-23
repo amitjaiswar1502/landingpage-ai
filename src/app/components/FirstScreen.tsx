@@ -59,7 +59,7 @@ export default function FirstScreen() {
               animate={{ x: showCore ? "0" : "50%" }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
             >
-              <motion.div className="flex items-center justify-center bg-white border-[1px] border-black size-[9vw] aspect-square text-black rounded-full overflow-hidden">
+              <motion.div className="flex items-center justify-center bg-white border-[1px]  border-black size-[9vw] aspect-square text-black rounded-full overflow-hidden">
                 <AnimatePresence mode="wait">
                   {!showG ? (
                     <motion.span
@@ -81,7 +81,7 @@ export default function FirstScreen() {
                         duration: 1,
                         ease: "easeOut",
                       }}
-                      className="text-[11vw] font-bold tracking-wider"
+                      className="text-[11vw] font-bold  tracking-wider"
                     >
                       G
                     </motion.span>
@@ -99,9 +99,9 @@ export default function FirstScreen() {
                       ease: "easeOut",
                       delay: 0.3,
                     }}
-                    className="text-[11vw] font-bold tracking-wider"
+                    className="text-[5vw] font-bold tracking-wider"
                   >
-                    core
+                    GCORE
                   </motion.div>
                 )}
               </AnimatePresence>
